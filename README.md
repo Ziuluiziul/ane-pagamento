@@ -1,5 +1,5 @@
 # Pagamento A.N.E
 
-Página pública de recebimento Pix (Caixa TEM), valor livre.
+Pagina publica de recebimento: Pix em BRL.
 
-Não extraia nem publique a chave Pix em texto. O QR oficial é a imagem na página.
+Nao extraia nem publique a chave Pix em texto. O QR e a imagem na pagina.
