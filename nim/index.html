@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Demo NVIDIA NIM — smoke & relatórios</title>
+<title>Demo NVIDIA NIM - smoke e relatorios</title>
 <style>
 body{font-family:system-ui,sans-serif;max-width:720px;margin:2rem auto;padding:0 1rem;line-height:1.45;color:#111}
 h1{font-size:1.4rem} h2{font-size:1.1rem;margin-top:1.6rem}
@@ -11,15 +11,16 @@ h1{font-size:1.4rem} h2{font-size:1.1rem;margin-top:1.6rem}
 .price{font-size:1.3rem;font-weight:700}
 .muted{color:#555;font-size:.9rem}
 code,pre{background:#f4f4f5;padding:.15rem .35rem;border-radius:4px;font-size:.85rem}
-pre{padding:.75rem;overflow:auto;white-space:pre-wrap}
-img.qr{width:220px;height:220px;image-rendering:pixelated;border:1px solid #eee}
+pre.pix{padding:.75rem;overflow:auto;white-space:pre-wrap;word-break:break-all}
+img.qr{width:220px;height:220px;image-rendering:pixelated;border:1px solid #eee;display:block}
 .grid{display:grid;gap:1rem;grid-template-columns:1fr}
 @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+button.copy{margin-top:.5rem;padding:.4rem .75rem;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer}
 </style>
 </head>
 <body>
 <h1>Demo NVIDIA NIM (API catalog free-tier)</h1>
-<p class="muted">Smoke inference · lista viva de modelos · relatório HTTP — prototipagem (Developer Program). Não é licença Enterprise de produção.</p>
+<p class="muted">Smoke inference · lista viva de modelos · relatorio HTTP — prototipagem (Developer Program). Nao e licenca Enterprise de producao. Independente — sem endosso NVIDIA.</p>
 
 <div class="grid">
   <div class="card">
@@ -27,29 +28,43 @@ img.qr{width:220px;height:220px;image-rendering:pixelated;border:1px solid #eee}
     <ul>
       <li><code>GET /v1/models</code> resumido</li>
       <li>1× <code>chat/completions</code> no ID live</li>
-      <li>Relatório HTTP / usage (sem secrets)</li>
+      <li>Relatorio HTTP / usage (sem secrets)</li>
     </ul>
-    <p><img class="qr" src="assets/pix_r50.png" alt="PIX R$50"/></p>
-    <p class="muted">PIX Luiz — copia e cola:</p>
-    <pre>00020126330014br.gov.bcb.pix011108030362994520400005303986540550.005802BR5920LUIZ</pre>
+    <p><img class="qr" src="assets/pix_r50.png" alt="PIX QR R$50"/></p>
+    <p class="muted">PIX Luiz — copia e cola (completo):</p>
+    <pre class="pix" id="pix50">00020126330014br.gov.bcb.pix011108030362994520400005303986540550.005802BR5920LUIZ GUSTAVO CORREIA6009SAO PAULO62080504Pack63044E58</pre>
+    <button class="copy" type="button" data-target="pix50" data-label="Copiar PIX R$50">Copiar PIX R$50</button>
   </div>
   <div class="card">
     <h2>Demo+ — <span class="price">R$&nbsp;100</span></h2>
     <ul>
       <li>Tudo do Smoke</li>
-      <li>Até 3 prompts no teu caso (reasoning/agentic)</li>
-      <li>Notas de limites só com UI/docs oficiais</li>
+      <li>Ate 3 prompts no teu caso (reasoning/agentic)</li>
+      <li>Notas de limites so com UI/docs oficiais</li>
     </ul>
-    <p><img class="qr" src="assets/pix_r100.png" alt="PIX R$100"/></p>
-    <p class="muted">PIX Luiz — copia e cola:</p>
-    <pre>00020126330014br.gov.bcb.pix0111080303629945204000053039865406100.005802BR5920LUIZ</pre>
+    <p><img class="qr" src="assets/pix_r100.png" alt="PIX QR R$100"/></p>
+    <p class="muted">PIX Luiz — copia e cola (completo):</p>
+    <pre class="pix" id="pix100">00020126330014br.gov.bcb.pix0111080303629945204000053039865406100.005802BR5920LUIZ GUSTAVO CORREIA6009SAO PAULO62090505Apoio6304C160</pre>
+    <button class="copy" type="button" data-target="pix100" data-label="Copiar PIX R$100">Copiar PIX R$100</button>
   </div>
 </div>
 
-<h2>Prova round1 (já corrida)</h2>
+<h2>Prova round1 (ja corrida)</h2>
 <p>ID: <code>nvidia/nemotron-3-super-120b-a12b</code> · HTTP 200 · usage prompt=35 completion=113</p>
-<pre>Um smoke test de API é um conjunto rápido de verificações básicas que confirma se a API está disponível, responde corretamente às chamadas essenciais e não apresenta falhas críticas após uma implantação ou alteração.</pre>
-<p class="muted">Prova round1: Super 120B HTTP 200.</p>
-<p class="muted">Sem top-up. USD/Binance só com autorização do Luiz.</p>
+<pre>Um smoke test de API e um conjunto rapido de verificacoes basicas que confirma se a API esta disponivel, responde corretamente as chamadas essenciais e nao apresenta falhas criticas apos uma implantacao ou alteracao.</pre>
+<p class="muted">Prova round1: Super 120B HTTP 200. Sem top-up. USD/Binance so com autorizacao do Luiz.</p>
+<script>
+document.querySelectorAll("button.copy").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var el = document.getElementById(btn.getAttribute("data-target"));
+    var t = el.textContent.trim();
+    navigator.clipboard.writeText(t).then(function(){
+      var label = btn.getAttribute("data-label");
+      btn.textContent = "Copiado";
+      setTimeout(function(){ btn.textContent = label; }, 1500);
+    });
+  });
+});
+</script>
 </body>
 </html>
