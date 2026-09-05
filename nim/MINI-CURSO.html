@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mini-curso NIM Super120 (free-tier)</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:720px;margin:2rem auto;padding:0 1rem;line-height:1.45;color:#111}
+h1{font-size:1.35rem} h2{font-size:1.05rem;margin-top:1.4rem}
+.card{border:1px solid #ddd;border-radius:12px;padding:1rem;margin:1rem 0}
+.price{font-size:1.25rem;font-weight:700}
+.muted{color:#555;font-size:.9rem}
+code,pre{background:#f4f4f5;padding:.15rem .35rem;border-radius:4px;font-size:.85rem}
+pre.pix{padding:.75rem;overflow:auto;white-space:pre-wrap;word-break:break-all}
+img.qr{width:200px;height:200px;image-rendering:pixelated;border:1px solid #eee;display:block}
+.grid{display:grid;gap:1rem} @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+a.btn{display:inline-block;margin:.35rem .35rem .35rem 0;padding:.45rem .85rem;border:1px solid #111;border-radius:8px;color:#111;text-decoration:none}
+ol.aulas>li{margin:.55rem 0}
+</style>
+</head>
+<body>
+<h1>Mini-curso — NIM free Super120</h1>
+<p class="muted">6 aulas curtas a partir dos samples round8. Free-tier only · sem secrets · independente (sem endosso NVIDIA).</p>
+<p>
+<a class="btn" href="NIM-free-Super120-playbook.pdf">PDF playbook</a>
+<a class="btn" href="index.html">Landing</a>
+<a class="btn" href="SAMPLES.md">SAMPLES.md</a>
+<a class="btn" href="https://ziuluiziul.github.io/round1-cumulunimbus/">Hub Cumulunimbus</a>
+</p>
+
+<ol class="aulas">
+<li><strong>Aula 1 — Lista viva:</strong> <code>GET /v1/models</code> deve devolver HTTP 200, JSON valido e ids <code>nvidia/*</code>. Prova round8: HTTP 200.</li>
+<li><strong>Aula 2 — Curl sem colar chave:</strong> use <code>$NVIDIA_API_KEY</code> no header; host <code>https://integrate.api.nvidia.com/v1</code>; modelo <code>nvidia/nemotron-3-super-120b-a12b</code>.</li>
+<li><strong>Aula 3 — Hosted vs Enterprise:</strong> catalog free = prototipagem/smoke; Enterprise = producao licenciada com suporte. Nao misturar claims.</li>
+<li><strong>Aula 4 — Falhas comuns:</strong> auth ausente/invalida; JSON malformado; 429 rate-limit; timeout/conectividade. Em 410/404: skip SKU.</li>
+<li><strong>Aula 5 — Relatorio sem secrets:</strong> HTTP, model id, usage, snippet curto. Nunca chave, cookie ou header Authorization.</li>
+<li><strong>Aula 6 — 503 no mesmo SKU:</strong> checar disponibilidade e aplicar backoff antes de retentar. Limites so da UI/docs oficiais (nao inventar RPM).</li>
+</ol>
+
+<p class="muted">Prova round8 (2026-09-05T23:16:26Z): Super120 smoke_ok=6/6 · near_limit=False · preferred <code>nvidia/nemotron-3-super-120b-a12b</code>.</p>
+
+<div class="grid">
+  <div class="card">
+    <h2>Apoio — <span class="price">R$&nbsp;50</span></h2>
+    <p><img class="qr" src="assets/pix_r50.png" alt="PIX QR R$50"/></p>
+    <p class="muted">PIX Luiz — qr_2 / pix_copia_cola_2 (tag54=50.00):</p>
+    <pre class="pix" id="pix50">00020126330014br.gov.bcb.pix011108030362994520400005303986540550.005802BR5920LUIZ GUSTAVO CORREIA6009SAO PAULO62080504Pack63044E58</pre>
+  </div>
+  <div class="card">
+    <h2>Apoio+ — <span class="price">R$&nbsp;100</span></h2>
+    <p><img class="qr" src="assets/pix_r100.png" alt="PIX QR R$100"/></p>
+    <p class="muted">PIX Luiz — qr_3 / pix_copia_cola_3 (tag54=100.00):</p>
+    <pre class="pix" id="pix100">00020126330014br.gov.bcb.pix0111080303629945204000053039865406100.005802BR5920LUIZ GUSTAVO CORREIA6009SAO PAULO62120508Apoio1006304C205</pre>
+  </div>
+</div>
+
+<p class="muted">Docs limites: <a href="https://docs.api.nvidia.com/nim/docs/api-quickstart">api-quickstart</a>. trycloudflare=MORTO.</p>
+</body>
+</html>

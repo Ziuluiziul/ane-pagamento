@@ -16,12 +16,18 @@ img.qr{width:220px;height:220px;image-rendering:pixelated;border:1px solid #eee;
 .grid{display:grid;gap:1rem;grid-template-columns:1fr}
 @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
 button.copy{margin-top:.5rem;padding:.4rem .75rem;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer}
+a.btn{display:inline-block;margin:.35rem .35rem .35rem 0;padding:.45rem .85rem;border:1px solid #111;border-radius:8px;color:#111;text-decoration:none}
 </style>
 </head>
 <body>
-<p class="muted"><a href="NIM-free-Super120-playbook.pdf">Playbook PDF (Super120 free)</a> · <a href="playbook.html">pagina do ebook + PIX</a> · <a href="SAMPLES.md">samples Super120</a></p>
 <h1>Demo NVIDIA NIM (API catalog free-tier)</h1>
 <p class="muted">Smoke inference · lista viva de modelos · relatorio HTTP — prototipagem (Developer Program). Nao e licenca Enterprise de producao. Independente — sem endosso NVIDIA.</p>
+<p>
+<a class="btn" href="MINI-CURSO.html">Mini-curso</a>
+<a class="btn" href="playbook.html">Playbook</a>
+<a class="btn" href="NIM-free-Super120-playbook.pdf">PDF</a>
+<a class="btn" href="SAMPLES.md">SAMPLES</a>
+</p>
 
 <div class="grid">
   <div class="card">
@@ -50,21 +56,18 @@ button.copy{margin-top:.5rem;padding:.4rem .75rem;border-radius:8px;border:1px s
   </div>
 </div>
 
-<p class="muted"><a href="ROUND5-LIVE.md">Round5 IDs live</a></p>
 <h2>Mesh Alpha</h2>
 <ul>
 <li><a href="https://ziuluiziul.github.io/round1-cumulunimbus/">Hub Cumulunimbus</a></li>
 <li><a href="https://ziuluiziul.github.io/groq-round1-offer/">Groq</a></li>
 <li><a href="https://ziuluiziul.github.io/openrouter-free-oferta/">OpenRouter</a></li>
-<li><a href="https://ziuluiziul.github.io/openrouter-free-oferta/curso.html">OpenRouter curso</a></li>
 <li><a href="https://ziuluiziul.github.io/ollama-cloud-free-done-right/">Ollama</a></li>
 <li><a href="https://ziuluiziul.github.io/gemini-round1-offer/">Gemini</a></li>
 </ul>
-<h2>Prova round1 (ja corrida)</h2>
-<p>ID: <code>nvidia/nemotron-3-super-120b-a12b</code> · HTTP 200 · usage prompt=35 completion=113</p>
-<pre>Um smoke test de API e um conjunto rapido de verificacoes basicas que confirma se a API esta disponivel, responde corretamente as chamadas essenciais e nao apresenta falhas criticas apos uma implantacao ou alteracao.</pre>
+<h2>Prova round8</h2>
+<p>ID: <code>nvidia/nemotron-3-super-120b-a12b</code> · GET /v1/models HTTP 200 · chat smoke_ok=6/6 · near_limit=False · UTC 2026-09-05T23:16:26Z</p>
 <p class="muted">Hub multi-IA (Alpha): <a href="https://ziuluiziul.github.io/round1-cumulunimbus/">https://ziuluiziul.github.io/round1-cumulunimbus/</a></p>
-<p class="muted">Prova round1: Super 120B HTTP 200. Sem top-up. USD/Binance so com autorizacao do Luiz.</p>
+<p class="muted">Sem top-up. Limites so UI/docs (<a href="https://docs.api.nvidia.com/nim/docs/api-quickstart">api-quickstart</a>). USD/Binance so com autorizacao do Luiz.</p>
 <script>
 document.querySelectorAll("button.copy").forEach(function(btn){
   btn.addEventListener("click", function(){
@@ -78,6 +81,5 @@ document.querySelectorAll("button.copy").forEach(function(btn){
   });
 });
 </script>
-<p class="muted">Cruzamento Alpha — Groq PIX checklist (R$20 pix-r20 / R$50 qr_2): <a href="https://ziuluiziul.github.io/groq-round1-offer/PIX20-CHECKLIST.md">PIX20-CHECKLIST</a></p>
 </body>
 </html>

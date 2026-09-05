@@ -1,93 +1,83 @@
-# NIM Super120 samples (round6)
+# NIM Super120 samples (round8)
 
-ID: `nvidia/nemotron-3-super-120b-a12b` · free-tier · sem secrets
+Timestamp UTC: 2026-09-05T23:16:26Z · BRT: 2026-09-05 ~20:16
+GET /v1/models HTTP 200 · nvidia ids listed in models_ids.txt
+ID live: `nvidia/nemotron-3-super-120b-a12b` · smoke_ok=6 · near_limit=False · free-tier only
+
+Host oficial: `https://integrate.api.nvidia.com/v1`
+Docs limites: https://docs.api.nvidia.com/nim/docs/api-quickstart (nao inventar RPM; observar UI).
+Sem secrets neste arquivo.
 
 ## Sample 1 (HTTP 200)
 
-**Prompt:** Em 3 bullets: o que um smoke GET /v1/models deve provar.
+**Prompt:** Em 3 bullets curtos em pt-BR: o que um smoke GET /v1/models deve provar.
 
-Okay, the user is asking for three bullet points about what a smoke test for a GET /v1/models endpoint should prove. Let me break this down.
+- Endpoint responde HTTP 200 com JSON valido
+- Corpo traz lista de modelos (nao vazia) com ids
+- Sem falha critica de auth/roteamento no catalog
 
-First, I need to recall what a smoke test is. Smoke tests are basic checks to verify that the most critical functions of a system work, usually done after a build or deployment. They're not exhaustive but catch major issues early.
-
-The endpoint in question is GET /v1/models.
-
-usage={'prompt_tokens': 34, 'completion_tokens': 90, 'total_tokens': 124}
+usage={'prompt_tokens': 61, 'completion_tokens': 120, 'total_tokens': 181} · finish=length
 
 ## Sample 2 (HTTP 200)
 
-**Prompt:** Escreve um curl minimo de chat/completions no Super 120B (sem API key).
+**Prompt:** Escreve um template curl minimo de chat/completions no modelo nvidia/nemotron-3-super-120b-a12b usando $NVIDIA_API_KEY (nao inventes a chave).
 
-Okay, the user is asking for a minimal curl command to use the chat/completions endpoint of the Super 120B model without an API key. Hmm, first I need to recall that most AI models, including those from providers like NVIDIA's Nemotron series (which Super 120B might refer to), require authentication via an API key. 
+```bash
+curl -sS https://integrate.api.nvidia.com/v1/chat/completions \
+  -H "Authorization: Bearer $NVIDIA_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "nvidia/nemotron-3-super-120b-a12b",
+    "messages": [{"role":"user","content":"ping smoke"}],
+    "max_tokens": 64
+  }'
+```
+(chave so via env; nunca colar secret)
 
-Wait, the user specifically said "sem API key" (
-
-usage={'prompt_tokens': 40, 'completion_tokens': 90, 'total_tokens': 130}
+usage={'prompt_tokens': 85, 'completion_tokens': 120, 'total_tokens': 205} · finish=length
 
 ## Sample 3 (HTTP 200)
 
-**Prompt:** 1 paragrafo: diferenca entre prototipagem NIM hosted e NVIDIA AI Enterprise.
+**Prompt:** Em 1 paragrafo curto pt-BR: diferenca entre prototipagem NIM hosted (API catalog free) e NVIDIA AI Enterprise.
 
-Okay, the user is asking for a one-paragraph explanation of the difference between NIM hosted prototyping and NVIDIA AI Enterprise. Let me start by recalling what I know about these terms.
+A prototipagem NIM hosted (API catalog free) permite testar modelos pré‑treinados via chamadas de API gratuitas, ideal para validação rápida sem infraestrutura própria, enquanto o NVIDIA AI Enterprise oferece uma plataforma completa, licenciada e otimizada para produção, com suporte empresarial, gerenciamento de clusters,
 
-First, NIM hosted prototyping. I think NIM stands for NVIDIA Inference Microservices. NVIDIA has been pushing their NIM platform for deploying AI models, especially with the rise of LLMs. Hosted prot
-
-usage={'prompt_tokens': 38, 'completion_tokens': 90, 'total_tokens': 128}
+usage={'prompt_tokens': 71, 'completion_tokens': 120, 'total_tokens': 191} · finish=length
 
 ## Sample 4 (HTTP 200)
 
-**Prompt:** Lista 4 falhas comuns ao chamar integrate.api.nvidia.com/v1.
+**Prompt:** Lista 4 falhas comuns ao chamar integrate.api.nvidia.com/v1 (pt-BR, bullets).
 
-Okay, the user is asking for 4 common failures when calling integrate.api.nvidia.com/v1. Let me think about this.
+- Erro de autenticação (token ausente ou inválido)  
+- Parâmetros de requisição malformados ou ausentes (ex.: payload JSON incorreto)  
+- Limite de taxa excedido (HTTP 429 Too Many Requests)  
+- Falha de conectividade ou timeout ao alcançar
 
-First, I need to recall what integrate.api.nvidia.com/v1 is. From what I know, NVIDIA has APIs for various services, like AI models, maybe related to NeMo or other AI frameworks. The endpoint integrate.api.nvidia.com/v1 might be part of their AI Enterprise or cloud services
-
-usage={'prompt_tokens': 33, 'completion_tokens': 90, 'total_tokens': 123}
+usage={'prompt_tokens': 60, 'completion_tokens': 120, 'total_tokens': 180} · finish=length
 
 ## Sample 5 (HTTP 200)
 
-**Prompt:** Resumo em 4 linhas: o que entregar num relatorio de smoke sem secrets.
+**Prompt:** Resumo em 4 linhas pt-BR: o que entregar num relatorio de smoke NIM sem secrets.
 
-Okay, the user is asking for a 4-line summary of what to deliver in a smoke test report without secrets. Let me unpack this.
+- Descrição do objetivo e escopo do teste de smoke no NIM.  
+- Lista de componentes/serviços testados e critérios de aprovação.  
+- Resultados obtidos (pass/fail) com evidências de logs ou métricas relevantes.  
+- Recomendações de ações
 
-First, I need to recall what a smoke test report typically includes. Smoke tests are basic checks to see if the build is stable enough for further testing. The report shouldn't contain any sensitive information like passwords or API keys—hence "without secrets."
-
-The user wants it concise: exactly four lines.
-
-usage={'prompt_tokens': 34, 'completion_tokens': 90, 'total_tokens': 124}
+usage={'prompt_tokens': 60, 'completion_tokens': 120, 'total_tokens': 180} · finish=length
 
 ## Sample 6 (HTTP 200)
 
-**Prompt:** Quando HTTP 503 no mesmo SKU, o que fazer primeiro (1 frase).
+**Prompt:** Em 1 frase pt-BR: quando HTTP 503 no mesmo SKU NIM, o que fazer primeiro.
 
-Okay, the user is asking what to do first when encountering an HTTP 503 error on the same SKU, and they want just one sentence. Let me recall what HTTP 503 means. It's a server error indicating that the server is temporarily unable to handle the request, often due to overload or maintenance.
+Verificar status/disponibilidade do SKU e aguardar breve backoff antes de retentar o mesmo endpoint.
 
-The user mentions "mesmo SKU," which is Portuguese for "same SKU." SKU usually stands
+usage={'prompt_tokens': 63, 'completion_tokens': 120, 'total_tokens': 183} · finish=length
 
-usage={'prompt_tokens': 35, 'completion_tokens': 90, 'total_tokens': 125}
-
-## Sample 7 (HTTP 200)
-
-**Prompt:** 1 frase: por que skip Super 49B v1.5 nesta conta.
-
-Okay, the user is asking for a single phrase in Portuguese explaining why to skip Super 49B v1.5 on this account. Let me break this down.
-
-First, I need to understand what "Super 49B v1.5" refers to. It sounds like a software version or a specific product update. The user wants to skip it on their account, so they're probably looking for a concise reason to avoid installing
-
-usage={'prompt_tokens': 34, 'completion_tokens': 90, 'total_tokens': 124}
-
-## Sample 8 (HTTP 200)
-
-**Prompt:** Checklist de 5 itens para um demo+ de 3 prompts.
-
-Okay, the user is asking for a checklist of 5 items for a "demo+ de 3 prompts." Hmm, first I need to figure out what they mean by "demo+ de 3 prompts." It might be a typo or a specific term in their context. Let me break it down.
-
-"Demo+" could refer to a demonstration or a demo version, maybe with some enhancements. "De 3 prompts" likely means "
-
-usage={'prompt_tokens': 32, 'completion_tokens': 90, 'total_tokens': 122}
-
-- extra `nvidia/ising-calibration-1.5-31b` HTTP 200
-- extra `nvidia/llama-3.1-nemoguard-8b-content-safety` HTTP 200
+## PIX (verdade pix-clean)
+- R$50 = qr_2 / pix_copia_cola_2 · EMV tag54=50.00
+- R$100 = qr_3 / pix_copia_cola_3 · EMV tag54=100.00
 
 Landing: https://ziuluiziul.github.io/ane-pagamento/nim/
-Playbook: https://ziuluiziul.github.io/ane-pagamento/nim/NIM-free-Super120-playbook.pdf
+Playbook PDF: https://ziuluiziul.github.io/ane-pagamento/nim/NIM-free-Super120-playbook.pdf
+Hub: https://ziuluiziul.github.io/round1-cumulunimbus/
